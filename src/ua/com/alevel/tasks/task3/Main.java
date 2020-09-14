@@ -2,7 +2,6 @@ package ua.com.alevel.tasks.task3;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class Main {
         words.add("Vlad");
         words.add("Vlad");
         words.add("Cake");
-        List<String> result = new WordsDuplicateImpl().getDuplicates(words, 6);
+        List<String> result = new WordsDuplicateImpl().getDuplicates(words, 3);
         for (String word:
              result) {
             System.out.println(word);

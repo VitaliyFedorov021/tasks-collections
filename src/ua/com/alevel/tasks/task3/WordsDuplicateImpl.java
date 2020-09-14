@@ -26,10 +26,7 @@ public class WordsDuplicateImpl implements WordsDuplicate {
 
     private Set<String> toSet(List<String> words) {
         Set<String> wordsSet = new HashSet<>();
-        for (String currentWord:
-             words) {
-            wordsSet.add(currentWord);
-        }
+        wordsSet.addAll(words);
         return wordsSet;
     }
 
