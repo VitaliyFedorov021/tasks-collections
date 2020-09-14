@@ -75,7 +75,7 @@ public class Words implements FrequencyOfWords {
     }
 
     public void action() {
-        List<Map<String, Integer>> frequentWords = getFrequentWord(words, 4);
+        List<Map<String, Integer>> frequentWords = getFrequentWord(words, 5);
         for (int i = 0; i < frequentWords.size(); ++i) {
             for (Map.Entry<String, Integer> currentEntry :
                     frequentWords.get(i).entrySet()) {

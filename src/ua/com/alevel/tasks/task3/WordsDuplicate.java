@@ -4,5 +4,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface WordsDuplicate {
-    List<String> getDuplicates(List<String> words, int limit);
+    Set<String> getDuplicates(List<String> words, int limit);
 }

@@ -5,23 +5,24 @@ import java.util.*;
 public class WordsDuplicateImpl implements WordsDuplicate {
 
     @Override
-    public List<String> getDuplicates(List<String> words, int limit) {
-        List<String> duplicate = new ArrayList<>();
+    public Set<String> getDuplicates(List<String> words, int limit) {
+        NavigableSet<String> duplicate = new TreeSet<>(new CompareForSort());
         Set<String> wordsSet = toSet(words);
         for (String currentWord:
              wordsSet) {
             int count = 0;
             if (isHaveDuplicate(words, currentWord)) {
-                duplicate.add(currentWord);
+                duplicate.add(currentWord.toLowerCase());
             }
         }
-        duplicate.sort(new CompareForSort());
-        int i = limit;
-        while (limit < duplicate.size()) {
-            duplicate.remove(duplicate.get(i));
+        List<String> tmp = new ArrayList<>();
+        tmp.addAll(duplicate);
+        if (limit == 0) {
+            throw new RuntimeException("Incorrect limit");
         }
+        String temp = tmp.get(limit - 1);
 
-        return duplicate;
+        return duplicate.headSet(temp, true);
     }
 
     private Set<String> toSet(List<String> words) {
